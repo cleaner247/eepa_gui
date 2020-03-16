@@ -253,6 +253,17 @@ void Ellipse::draw_lines() const {
 
 //------------------------------------------------------------------------------
 
+void Arc::draw_lines() const {
+  if (fill_color().visibility()) {
+    fl_color(fill_color().as_int());
+    fl_pie(point(0).x, point(0).y, w + w, h + h, angle_start(), angle_end());
+  }
+  if (color().visibility())
+    fl_arc(point(0).x, point(0).y, w + w, h + h, angle_start(), angle_end());
+}
+
+//------------------------------------------------------------------------------
+
 void Text::draw_lines() const {
   int ofnt = fl_font();
   int osz = fl_size();

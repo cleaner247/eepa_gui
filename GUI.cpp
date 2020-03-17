@@ -21,6 +21,14 @@ void Button::attach(Window& win) {
 
 //------------------------------------------------------------------------------
 
+void ButtonWithPtr::attach(Window& win) {
+  pw = new Fl_Button(loc.x, loc.y, width, height, label.c_str());
+  pw->callback(reinterpret_cast<Fl_Callback*>(do_it),
+               data_ptr_);  // pass the window
+  own = &win;
+}
+//------------------------------------------------------------------------------
+
 int In_box::get_int() {
   Fl_Input& pi = reference_to<Fl_Input>(pw);
   // return atoi(pi.value());
@@ -33,8 +41,14 @@ int In_box::get_int() {
 
 std::string In_box::get_string() {
   Fl_Input& pi = reference_to<Fl_Input>(pw);
-  // return atoi(pi.value());
   return {pi.value()};
+}
+
+//------------------------------------------------------------------------------
+
+void In_box::clear() {
+  Fl_Input& pi = reference_to<Fl_Input>(pw);
+  pi.value(nullptr, 0);
 }
 
 //------------------------------------------------------------------------------

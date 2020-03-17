@@ -50,8 +50,6 @@ class Window : public Fl_Window {
 
   void put_on_top(Shape& p);  // put p on top of other shapes
 
-  void redraw() { Fl::redraw(); }
-
  protected:
   void draw();
 

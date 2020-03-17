@@ -9,8 +9,8 @@ INCLUDES =/usr/local/include
 
 #CXXFLAGS = -ggdb3 -O0 -Wall -Wextra -Werror #-Wconversion -Wshadow
 #CXXFLAGS = -ggdb3 -O2 -Wall -Wextra -Werror #-Wconversion -Wshadow
-CXX      = $(shell fltk-config --cxx)
-#CXX		 = g++-9
+#CXX      = $(shell fltk-config --cxx)
+CXX		 = g++-9
 DEBUG    = -g
 CXXFLAGS = $(shell fltk-config --use-gl --use-images --cxxflags ) -I. --std=c++11
 LDFLAGS  = $(shell fltk-config --use-gl --use-images --ldflags )

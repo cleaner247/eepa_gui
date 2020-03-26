@@ -236,8 +236,10 @@ void Circle::draw_lines() const {
     fl_color(fill_color().as_int());
     fl_pie(point(0).x, point(0).y, r + r, r + r, 0, 360);
   }
-  if (color().visibility())
+  if (color().visibility()) {
+    fl_color(color().as_int());
     fl_arc(point(0).x, point(0).y, r + r, r + r, 0, 360);
+  }
 }
 
 //------------------------------------------------------------------------------
@@ -247,8 +249,10 @@ void Ellipse::draw_lines() const {
     fl_color(fill_color().as_int());
     fl_pie(point(0).x, point(0).y, w + w, h + h, 0, 360);
   }
-  if (color().visibility())
+  if (color().visibility()) {
+    fl_color(color().as_int());
     fl_arc(point(0).x, point(0).y, w + w, h + h, 0, 360);
+  }
 }
 
 //------------------------------------------------------------------------------
@@ -258,8 +262,10 @@ void Arc::draw_lines() const {
     fl_color(fill_color().as_int());
     fl_pie(point(0).x, point(0).y, w + w, h + h, angle_start(), angle_end());
   }
-  if (color().visibility())
+  if (color().visibility()) {
+    fl_color(color().as_int());
     fl_arc(point(0).x, point(0).y, w + w, h + h, angle_start(), angle_end());
+  }
 }
 
 //------------------------------------------------------------------------------
